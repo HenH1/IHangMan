@@ -15,6 +15,8 @@
 		D81252231D2FD54D00A374AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81252211D2FD54D00A374AF /* LaunchScreen.storyboard */; };
 		D812522E1D2FD54D00A374AF /* IHangManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D812522D1D2FD54D00A374AF /* IHangManTests.swift */; };
 		D81252391D2FD54D00A374AF /* IHangManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81252381D2FD54D00A374AF /* IHangManUITests.swift */; };
+		D856DF911D3163DD00DEE104 /* DataSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = D856DF901D3163DD00DEE104 /* DataSerivce.swift */; };
+		D856DF931D322F5E00DEE104 /* GoogleService-Info.plist.txt in Resources */ = {isa = PBXBuildFile; fileRef = D856DF921D322F5E00DEE104 /* GoogleService-Info.plist.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D81252341D2FD54D00A374AF /* IHangManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IHangManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81252381D2FD54D00A374AF /* IHangManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IHangManUITests.swift; sourceTree = "<group>"; };
 		D812523A1D2FD54D00A374AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D856DF901D3163DD00DEE104 /* DataSerivce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSerivce.swift; sourceTree = "<group>"; };
+		D856DF921D322F5E00DEE104 /* GoogleService-Info.plist.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GoogleService-Info.plist.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +103,18 @@
 		D81252141D2FD54D00A374AF /* IHangMan */ = {
 			isa = PBXGroup;
 			children = (
+				D856DF8F1D3163B200DEE104 /* Services */,
+				D856DF8D1D314AD400DEE104 /* Resources */,
+				D856DF8B1D31496C00DEE104 /* Model */,
+				D856DF8E1D314ADE00DEE104 /* View */,
+				D856DF8C1D314ACA00DEE104 /* Controller */,
 				D81252151D2FD54D00A374AF /* AppDelegate.swift */,
 				D81252171D2FD54D00A374AF /* ViewController.swift */,
 				D81252191D2FD54D00A374AF /* Main.storyboard */,
 				D812521F1D2FD54D00A374AF /* Assets.xcassets */,
 				D81252211D2FD54D00A374AF /* LaunchScreen.storyboard */,
 				D81252241D2FD54D00A374AF /* Info.plist */,
+				D856DF921D322F5E00DEE104 /* GoogleService-Info.plist.txt */,
 				D812521C1D2FD54D00A374AF /* IHangMan.xcdatamodeld */,
 			);
 			path = IHangMan;
@@ -126,6 +136,46 @@
 				D812523A1D2FD54D00A374AF /* Info.plist */,
 			);
 			path = IHangManUITests;
+			sourceTree = "<group>";
+		};
+		D856DF8B1D31496C00DEE104 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D856DF8C1D314ACA00DEE104 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D856DF8D1D314AD400DEE104 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D856DF8E1D314ADE00DEE104 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D856DF8F1D3163B200DEE104 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D856DF901D3163DD00DEE104 /* DataSerivce.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +286,7 @@
 				D81252231D2FD54D00A374AF /* LaunchScreen.storyboard in Resources */,
 				D81252201D2FD54D00A374AF /* Assets.xcassets in Resources */,
 				D812521B1D2FD54D00A374AF /* Main.storyboard in Resources */,
+				D856DF931D322F5E00DEE104 /* GoogleService-Info.plist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +314,7 @@
 				D81252181D2FD54D00A374AF /* ViewController.swift in Sources */,
 				D81252161D2FD54D00A374AF /* AppDelegate.swift in Sources */,
 				D812521E1D2FD54D00A374AF /* IHangMan.xcdatamodeld in Sources */,
+				D856DF911D3163DD00DEE104 /* DataSerivce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,7 +461,7 @@
 				INFOPLIST_FILE = IHangMan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amitapps.IHangMan;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ah-apps.ihangman";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -424,7 +476,7 @@
 				INFOPLIST_FILE = IHangMan/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.amitapps.IHangMan;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ah-apps.ihangman";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -495,6 +547,7 @@
 				D812523F1D2FD54D00A374AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D81252401D2FD54D00A374AF /* Build configuration list for PBXNativeTarget "IHangManTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +556,7 @@
 				D81252421D2FD54D00A374AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D81252431D2FD54D00A374AF /* Build configuration list for PBXNativeTarget "IHangManUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +565,7 @@
 				D81252451D2FD54D00A374AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
