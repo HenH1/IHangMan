@@ -10,7 +10,11 @@ import Foundation
 import Firebase
 
 class DataSerivce {
-    static let ds DataService()
+    static let ds = DataSerivce()
     
-    private var _REF_BASE = FireBase(url: "https")
+    private let _ref = FIRDatabase.database().reference()
+    
+    var Ref: FIRDatabaseReference {
+        return _ref
+    }
 }
