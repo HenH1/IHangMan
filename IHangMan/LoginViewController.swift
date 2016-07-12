@@ -9,10 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
+
 
 class LoginViewController: UIViewController {
     
-    @IBOutlet weak var userNameField: UITextField!
+    @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     
@@ -30,47 +32,33 @@ class LoginViewController: UIViewController {
 
     @IBAction func attemptLogin(sender: UIButton!){
         
-        if let userName = userNameField.text where userName != "", let password = passwordField.text where password != "" {
-           
-            FIRAuth.auth()?.signInWithEmail(userName, password: password) { (user, error) in
+        if let email = emailField.text where email != "", let password = passwordField.text where password != "" {
+              
+            FIRAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
                 if let error = error {
                     print(error.localizedDescription)
                     self.showErrorAlert("Could not connect", msg: "Please try again")
                     return
                 }
-                
                 if let user = user {
                     print(user.uid)
-                   NSUserDefaults.standardUserDefaults().setObject(user.uid, forKey: "KEY_UID")
-                    self.performSegueWithIdentifier("goToHome", sender: nil)
+                    NSUserDefaults.standardUserDefaults().setObject(user.uid, forKey: "KEY_UID")
+                    NSUserDefaults.standardUserDefaults().setInteger(1, forKey: "KEY_IS_LOGGED_IN")
+                   // FIRDatabase.database().reference().child("users").child(user.uid).setValue(user.uid)
+                   // DataSerivce.ds.USERS_REF.child(user.uid)
+                
+                    
+                    self.dismissViewControllerAnimated(true, completion: nil)
                 }
-                
-                
             }
         } else {
-            showErrorAlert("User Name and Password Requiered", msg: "You must enter User Name and Password")
-            
+            showErrorAlert("email and Password Requiered", msg: "You must enter email and Password")
         }
     }
-    
-    @IBAction func attemptSignUp(sender: UIButton!){
-        if let userName = userNameField.text where userName != "", let password = passwordField.text where password != "" {
-            
-            FIRAuth.auth()!.createUserWithEmail(userName, password: password, completion: { (authData, error)  in
-                if error == nil {
-                    // Log user in
-                    self.attemptLogin(nil)
-                
-                } else {
-                    // Handle login error here
-                    self.showErrorAlert("Could not sign up", msg: "Please try again")                    
-                }
-            })
-            
-        } else {
-            showErrorAlert("User Name and Password Requiered", msg: "You must enter User Name and Password")
-            
-        }
+
+    @IBAction func moveToSignUpSegue(sender: UIButton!){
+      
+         self.performSegueWithIdentifier("goToSignUp", sender: self)
 
     }
     

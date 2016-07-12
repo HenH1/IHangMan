@@ -18,6 +18,8 @@
 		D81252231D2FD54D00A374AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81252211D2FD54D00A374AF /* LaunchScreen.storyboard */; };
 		D812522E1D2FD54D00A374AF /* IHangManTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D812522D1D2FD54D00A374AF /* IHangManTests.swift */; };
 		D81252391D2FD54D00A374AF /* IHangManUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81252381D2FD54D00A374AF /* IHangManUITests.swift */; };
+		D83BA82C1D34EDC90063F60F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83BA82B1D34EDC80063F60F /* SignUpViewController.swift */; };
+		D83BA82E1D3557920063F60F /* GameBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83BA82D1D3557920063F60F /* GameBoardViewController.swift */; };
 		D856DF911D3163DD00DEE104 /* DataSerivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = D856DF901D3163DD00DEE104 /* DataSerivce.swift */; };
 		D8F9B70B1D32BBC200DBCB68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D856DF921D322F5E00DEE104 /* GoogleService-Info.plist */; };
 		D8F9B70C1D32BBC300DBCB68 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D856DF921D322F5E00DEE104 /* GoogleService-Info.plist */; };
@@ -66,6 +68,8 @@
 		D81252341D2FD54D00A374AF /* IHangManUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IHangManUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81252381D2FD54D00A374AF /* IHangManUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IHangManUITests.swift; sourceTree = "<group>"; };
 		D812523A1D2FD54D00A374AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D83BA82B1D34EDC80063F60F /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = IHangMan/SignUpViewController.swift; sourceTree = "<group>"; };
+		D83BA82D1D3557920063F60F /* GameBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameBoardViewController.swift; path = IHangMan/GameBoardViewController.swift; sourceTree = "<group>"; };
 		D856DF901D3163DD00DEE104 /* DataSerivce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSerivce.swift; sourceTree = "<group>"; };
 		D856DF921D322F5E00DEE104 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D8F9B7141D32F18600DBCB68 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +197,8 @@
 			children = (
 				D81252171D2FD54D00A374AF /* LoginViewController.swift */,
 				D8F9B7141D32F18600DBCB68 /* HomeViewController.swift */,
+				D83BA82B1D34EDC80063F60F /* SignUpViewController.swift */,
+				D83BA82D1D3557920063F60F /* GameBoardViewController.swift */,
 			);
 			name = ViewController;
 			path = ..;
@@ -480,9 +486,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D83BA82C1D34EDC90063F60F /* SignUpViewController.swift in Sources */,
 				D8F9B7151D32F18600DBCB68 /* HomeViewController.swift in Sources */,
 				D81252181D2FD54D00A374AF /* LoginViewController.swift in Sources */,
 				D81252161D2FD54D00A374AF /* AppDelegate.swift in Sources */,
+				D83BA82E1D3557920063F60F /* GameBoardViewController.swift in Sources */,
 				D812521E1D2FD54D00A374AF /* IHangMan.xcdatamodeld in Sources */,
 				D856DF911D3163DD00DEE104 /* DataSerivce.swift in Sources */,
 			);
