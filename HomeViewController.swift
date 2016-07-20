@@ -16,7 +16,25 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad() 
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "b4.jpg")!)
+        
           }
+    
+    func ResizeImage(image: UIImage, targetSize: CGSize) -> UIImage {
+
+        
+        // This is the rect that we've calculated out and this is what is actually used below
+        let rect = CGRectMake(0, 0, targetSize.width, targetSize.height)
+        
+        // Actually do the resizing to the rect using the ImageContext stuff
+        UIGraphicsBeginImageContextWithOptions(targetSize, false, 1.0)
+        image.drawInRect(rect)
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
     
     override func viewDidAppear(animated: Bool) {
         
@@ -56,9 +74,17 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func moveToGameBoard(sender: UIButton!){
-    self.performSegueWithIdentifier("goToGameBoard", sender: self)
+        self.performSegueWithIdentifier("goToGameBoard", sender: self)
     }
-
+    
+    @IBAction func moveToCahmp(sender: UIButton!){
+        self.performSegueWithIdentifier("goToChamp", sender: self)
+    }
+    
+    @IBAction func moveToInstructions(sender: UIButton!){
+        self.performSegueWithIdentifier("goToInstructions", sender: self)
+    }
+    
     
     
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>word</key>
+	<array>
+		<array>
+			<string>ארמדיל</string>
+		</array>
+		<array>
+			<string>קואלה</string>
+		</array>
+		<array>
+			<string>היפופוטמ</string>
+		</array>
+		<array>
+			<string>דולפינ</string>
+		</array>
+		<array>
+			<string>לוויתנ</string>
+		</array>
+	</array>
+</dict>
+</plist>

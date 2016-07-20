@@ -12,7 +12,7 @@ import FirebaseAuth
 
 
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController,UITextFieldDelegate {
     
     private let ref = FIRDatabase.database().reference()
     
@@ -21,12 +21,51 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var confirmPasswordField: UITextField!
     
+    @IBOutlet weak var signupBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "b4.jpg")!)
         // Do any additional setup after loading the view, typically from a nib.
+        passwordField.secureTextEntry = true
+        confirmPasswordField.secureTextEntry = true
+
+        userNameField.delegate = self
+        emailField.delegate = self
+        passwordField.delegate = self
+        confirmPasswordField.delegate = self
+
+        confirmPasswordField.returnKeyType = .Done
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
+    }
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == confirmPasswordField
+        {
+            self.view.endEditing(true)
+            signupBtn.sendActionsForControlEvents(.TouchUpInside)
+            return false
+        }
+        if textField == userNameField
+        {
+            emailField.becomeFirstResponder()
+            return true
+        }
+        if textField == emailField
+        {
+            passwordField.becomeFirstResponder()
+            return true
+        }
+        confirmPasswordField.becomeFirstResponder()
+        return true
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -35,6 +74,10 @@ class SignUpViewController: UIViewController {
     @IBAction func attemptToSignUp(sender: UIButton!){
 
         if let email = emailField.text where email != "", let password = passwordField.text where password != "", let userName = userNameField.text where userName != "", let confirmPassword = confirmPasswordField.text where confirmPassword != "" {
+            
+            if (password != confirmPassword) {
+                showAlert("ססמאות לא תואמות", msg: "נסה שנית")
+            }
             
             FIRAuth.auth()!.createUserWithEmail(email, password: password, completion: { (authData, error)  in
                 if error == nil {
@@ -50,12 +93,30 @@ class SignUpViewController: UIViewController {
                   
                 } else {
                     // Handle login error here
-                    self.showAlert("Could not sign up", msg: "Please try again")
+                    if let code = error?.code {
+                        var msg = ""
+                        
+                        switch code {
+                        case 17007:
+                            msg = "כתובת המייל תפוסה ע״י משתמש אחר"
+                        case 17026 :
+                            msg = "הססמא חייבת להיות ארוכה מ-6 תווים או יותר"
+                        case 17008:
+                            msg = "אימייל בפורמט לא תקין"
+                        default:
+                            msg = "שגיאה כללית, נסה שנית"
+                        }
+                        
+                        print(error?.localizedDescription)
+                          self.showAlert("נתונים שגויים", msg: msg)
+                    }else {
+                        self.showAlert("נתונים שגויים", msg: "נסה שנית")
+                    }
                 }
             })
             
         } else {
-           showAlert("User Name and Password Requiered", msg: "You must enter User Name and Password")
+           showAlert("פרטים חסרים", msg: "מלא את הפרטים החסרים ונסה שנית")
         }
     }
     
@@ -65,6 +126,10 @@ class SignUpViewController: UIViewController {
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func moveToLogin(sender: UIButton!){
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
